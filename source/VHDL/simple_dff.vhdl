@@ -3,9 +3,9 @@ use ieee.std_logic_1164.all;
 
 entity simple_dff is 
 port (
-    D   : in std_logic;
-    CLK : in std_logic;
-    Q   : out std_logic
+    d   : in std_logic;
+    clk: in std_logic;
+    q  : out std_logic
 );
 end entity;
 
@@ -13,10 +13,10 @@ architecture arch of simple_dff is
 
 begin
 
-dff : process(CLK)
+dff : process(clk)
 begin
-    if (rising_edge(CLK)) then
-        Q<=D;
+    if (rising_edge(clk)) then
+        q <= d;
     end if;
 end process;
 

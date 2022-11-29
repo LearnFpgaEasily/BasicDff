@@ -1,12 +1,12 @@
 module simple_dff(
-    input CLK,
-    input D,
-    output reg Q
+    input clk,
+    input d,
+    output reg q
 );
 
-always @(posedge CLK)
+always @(posedge clk)
 begin : dff_without_control_signal_nor_reset
-    Q <= D;
+    q<= d;
 end
 
 endmodule
