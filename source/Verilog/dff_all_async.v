@@ -1,22 +1,23 @@
 module dff_all_async(
     input CLK,
     input D,
-    input RS,
+    input SR,
     input CE,
-    output reg Q,
+    output reg Q
 );
 
-always @(posedge CLK or posedge RS)
-begin : dff_with_all_and_sync
-    if(RS)
+always @(posedge CLK or posedge SR)
+begin : dff_with_all_ctr_and_async_reset
+    if(SR)
         Q <= 1'b0;
     else
-        begin : enable management
-            if (CE)
+        begin  // enable management
+            if(CE) 
                 Q <= D;
             else
                 Q <= 1'b0;
+            
         end
 end
 
-endmodule dff_with_synchronous_reset
+endmodule;

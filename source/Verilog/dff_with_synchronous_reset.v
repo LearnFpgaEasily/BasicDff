@@ -2,7 +2,7 @@ module dff_with_synchronous_reset(
     input CLK,
     input D,
     input RS,
-    output reg Q,
+    output reg Q
 );
 
 always @(posedge CLK)
@@ -13,4 +13,4 @@ begin : dff_with_sync_reset
         Q <= D;
 end
 
-endmodule dff_with_synchronous_reset
+endmodule

@@ -1,22 +1,22 @@
-module dff_with_synchronous_reset(
+module dff_all_sync(
     input CLK,
     input D,
-    input RS,
+    input SR,
     input CE,
-    output reg Q,
+    output reg Q
 );
 
 always @(posedge CLK)
-begin : dff_with_all_and_sync
-    if(RS)
+begin : dff_with_all_ctr_and_sync_reset
+    if(SR)
         Q <= 1'b0;
     else
-        begin : enable management
-            if (CE)
+        begin
+            if(CE)
                 Q <= D;
             else
                 Q <= 1'b0;
         end
 end
 
-endmodule dff_with_synchronous_reset
+endmodule
