@@ -1,16 +1,16 @@
 module dff_with_asynchronous_reset(
-    input CLK,
-    input D,
-    input SR,
-    output reg Q
+    input clock,
+    input d,
+    input reset,
+    output reg q
 );
 
-always @(posedge CLK or posedge SR)
+always @(posedge clock or posedge reset)
 begin : dff_async_reset
-    if(SR)
-        Q <= 1'b0;
+    if(reset)
+        q <= 1'b0;
     else
-        Q <= D;
+        q <= d;
 end
 
 endmodule

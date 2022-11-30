@@ -1,21 +1,21 @@
 module dff_all_async(
-    input CLK,
-    input D,
-    input SR,
-    input CE,
-    output reg Q
+    input clock,
+    input d,
+    input reset,
+    input enable,
+    output reg q
 );
 
-always @(posedge CLK or posedge SR)
+always @(posedge clock or posedge reset)
 begin : dff_with_all_ctr_and_async_reset
-    if(SR)
-        Q <= 1'b0;
+    if(reset)
+        q <= 1'b0;
     else
         begin  // enable management
-            if(CE) 
-                Q <= D;
+            if(enable) 
+                q <= d;
             else
-                Q <= 1'b0;
+                q <= 1'b0;
             
         end
 end

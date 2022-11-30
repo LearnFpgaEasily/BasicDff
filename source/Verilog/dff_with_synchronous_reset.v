@@ -1,16 +1,16 @@
 module dff_with_synchronous_reset(
-    input CLK,
-    input D,
+    input clock,
+    input d,
     input RS,
-    output reg Q
+    output reg q
 );
 
-always @(posedge CLK)
+always @(posedge clock)
 begin : dff_with_sync_reset
     if(RS)
-        Q <= 1'b0;
+        q <= 1'b0;
     else
-        Q <= D;
+        q <= d;
 end
 
 endmodule

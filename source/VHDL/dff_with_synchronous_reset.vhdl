@@ -3,11 +3,11 @@ use ieee.std_logic_1164.all;
 
 entity dff_all_sync is 
 port (
-    D   : in std_logic;
-    CLK : in std_logic;
-    SR  : in std_logic;
-    CE  : in std_logic;
-    Q   : out std_logic
+    d   : in std_logic;
+    clock : in std_logic;
+    reset  : in std_logic;
+    enable  : in std_logic;
+    q   : out std_logic
 );
 end entity;
 
@@ -15,15 +15,15 @@ architecture arch of dff_all_sync is
 
 begin
 
-dff : process(CLK)
+dff :process(clock)
 begin 
-    if (rising_edge(CLK)) then
-        if (SR='1') then 
-            Q <= '0';
+    if (rising_edge(clock)) then
+        if (reset='1') then 
+            q <= '0';
         else
-            Q <= D;
+            q <= d;
         end if;
     end if;
-end process;
+endprocess;
 
 end architecture;  

@@ -1,14 +1,14 @@
 module dff_with_enable(
-    input CLK,
-    input D,
-    input CE,
-    output reg Q
+    input clock,
+    input d,
+    input enable,
+    output reg q
 );
 
-always @(posedge CLK)
-begin : dff_with_ce
-    if(CE)
-        Q <= D;
+always @(posedge clock)
+begin : dff_with_enable
+    if(enable)
+        q <= d;
 end
 
 endmodule
