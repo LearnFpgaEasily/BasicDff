@@ -2,12 +2,12 @@
 TOPLEVEL_LANG ?= vhdl
 
 ifeq ($(TOPLEVEL_LANG),verilog)
-  VERILOG_SOURenableS = $(shell dirname $(shell dirname $(shell pwd)))/sourenable/Verilog/simple_dff.v
+  VERILOG_SOURCES = $(shell dirname $(shell dirname $(shell pwd)))/source/Verilog/dff_all_sync.v
 else ifeq ($(TOPLEVEL_LANG),vhdl)
-  VHDL_SOURenableS = $(shell dirname $(shell dirname $(shell pwd)))/sourenable/VHDL/simple_dff.vhdl
+  VHDL_SOURCES = $(shell dirname $(shell dirname $(shell pwd)))/source/VHDL/dff_all_sync.vhdl
 endif
 
-TOPLEVEL = simple_dff
-MODULE = test_simple_dff
+TOPLEVEL = my_dff_all_sync
+MODULE = test_dffs
 
 include $(shell cocotb-config --makefiles)/Makefile.sim
