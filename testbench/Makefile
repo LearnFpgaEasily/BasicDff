@@ -1,6 +1,6 @@
 
 TOPLEVEL_LANG ?= vhdl
-TOPLEVEL ?= dff_all_sync
+TOPLEVEL ?= dff
 
 
 ifeq ($(TOPLEVEL_LANG),verilog)
